@@ -1,0 +1,12 @@
+body[data-theme="light"] {
+  background-color: white;
+}
+
+body[data-theme="dark"] {
+  background-color: rgb(31, 30, 30);
+  color: rgb(255, 255, 255);
+}
+
+body[data-theme="light"] h1 {
+  color: black;
+}
