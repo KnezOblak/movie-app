@@ -3,8 +3,8 @@
 Clone the repository and install dependencies:
 
 ```bash```
-git clone https://github.com/KnezOblak/Posts-and-Comments.git <br>
-cd  <br>
+git clone https://github.com/KnezOblak/movie-app.git <br>
+cd movie-app <br>
 npm install
 
 ## Usage
