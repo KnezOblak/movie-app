@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Poster.css";
+import { motion } from "framer-motion";
 
 interface InfoProps {
   movieId: number;
@@ -32,7 +33,7 @@ function Poster({
 
   return (
     <>
-      <div
+      <motion.div
         className={`movie-poster overflow-auto ${expanded ? "expanded" : ""}`}
         onClick={handleClick}
         onMouseEnter={() => setHovered(true)}
@@ -52,11 +53,27 @@ function Poster({
           </div>
         )}
         {hovered && !expanded && (
-          <div className="d-flex flex-column gap-2 m-2">
-            <h3>{title}</h3>
-            <h4>{rating.toFixed(1)}</h4>
-            <h5>Click to see more</h5>
-          </div>
+          <motion.div
+            className="hovered-info"
+            initial={{ opacity: 0, height: "0%" }}
+            animate={{ opacity: 1, height: "100%" }}
+            exit={{ opacity: 0, height: "0%" }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            style={{
+              position: "absolute",
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: "rgb(0, 0, 0, 0.8)",
+              padding: "1rem",
+              overflow: "hidden",
+              cursor: "pointer",
+            }}
+          >
+            <h4>{title}</h4>
+            <h5>{rating.toFixed(1)}</h5>
+            <p>Click to see more</p>
+          </motion.div>
         )}
         {expanded && (
           <div className="d-flex flex-column justify-content m-3">
@@ -65,7 +82,7 @@ function Poster({
             <h4>{rating.toFixed(1)}</h4>
           </div>
         )}
-      </div>
+      </motion.div>
     </>
   );
 }

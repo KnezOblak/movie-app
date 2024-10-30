@@ -8,12 +8,14 @@
 }
 
 .movie-poster {
+  position: relative;
   margin-bottom: 10px;
   width: 100%;
   height: auto;
   overflow: hidden;
   transition: transform 0.3s ease;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .movie-poster.expanded {
@@ -38,11 +40,18 @@
   height: auto;
   object-fit: cover;
   transition: transform 0.5s ease;
-  cursor: pointer;
 }
 
 .movie-poster.expanded img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover;
+}
+
+.hovered-info h4 {
+  font-size: 2rem;
+}
+
+.hovered-info p {
+  color: rgb(223, 37, 24);
 }
