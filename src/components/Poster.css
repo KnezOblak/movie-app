@@ -1,0 +1,48 @@
+.movie-poster-placeholder {
+  width: 100%;
+  height: 300px;
+  background-color: #ccc;
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.movie-poster {
+  margin-bottom: 10px;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+}
+
+.movie-poster.expanded {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0px;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: transform 0.6s ease, width 1s ease, height 1s ease;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-poster img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+
+.movie-poster.expanded img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
