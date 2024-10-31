@@ -29,10 +29,6 @@
   background-color: rgba(0, 0, 0, 0.8);
   transition: transform 0.6s ease, width 1s ease, height 1s ease;
   font-size: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .movie-poster img {
@@ -54,4 +50,14 @@
 
 .hovered-info p {
   color: rgb(223, 37, 24);
+}
+
+.overview p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+.overview h3 {
+  font-size: 2.5rem;
 }

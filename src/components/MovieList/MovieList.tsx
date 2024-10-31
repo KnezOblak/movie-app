@@ -10,12 +10,33 @@ interface Movie {
   overview: string;
   vote_average: number;
   poster_path: string | null;
+  original_language: string;
+  genre_ids: number[];
+}
+
+interface Genre {
+  id: number;
+  name: string;
 }
 
 function MovieList() {
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [genres, setGenres] = useState<Genre[]>([]);
 
   const generateRandomPage = () => Math.floor(Math.random() * 500 + 1);
+
+  const getGenres = () => {
+    fetch(
+      `https://api.themoviedb.org/3/genre/movie/list?api_key=331ec3900ed83ab3e842d5271e840508`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setGenres(data.genres || []);
+      })
+      .catch((error) => {
+        console.log("Error fetching genres: ", error);
+      });
+  };
 
   const getMovieRequest = () => {
     const randomPage = generateRandomPage();
@@ -32,6 +53,7 @@ function MovieList() {
   };
 
   useEffect(() => {
+    getGenres();
     getMovieRequest();
   }, []);
 
@@ -58,6 +80,9 @@ function MovieList() {
               overview={movie.overview}
               rating={movie.vote_average}
               poster={movie.poster_path}
+              language={movie.original_language}
+              genreIds={movie.genre_ids}
+              genres={genres}
             />
           </div>
         ))}
